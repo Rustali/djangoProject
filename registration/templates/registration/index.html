@@ -1,0 +1,284 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link type="text/css" href="{% static 'registration/css/styles.css' %}" rel="stylesheet" />
+  </head>
+  <body>
+
+{% block content %}
+
+
+<section class="hero is-info is-small">
+  <div class="hero-body">
+    <p class="title">
+        {{ title }}
+    </p>
+  </div>
+</section>
+<section class="section is-small">
+<form action="{% url 'home' %}" method="post">
+    {% csrf_token %}
+
+    <div class="form-error">{{ form.non_field_errors }}</div>
+
+
+<div class="field">
+  <label class="label" for="{{ form.cat.id_for_label }}">{{ form.cat.label }}</label>
+  <div class="control">
+    <div class="select">
+            {{ form.cat }}
+    </div>
+  </div>
+
+</div>
+
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label" for="{{ form.email.id_for_label }}">{{ form.email.label }}</label>
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <div class="control">
+          <label>
+              {{ form.email }}
+          </label>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<h2 class="subtitle">Название организации</h2>
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label" for="{{ form.name.id_for_label }}">{{ form.name.label }}</label>
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <div class="control">
+              {{ form.name }}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label" for="{{ form.inn.id_for_label }}">{{ form.inn.label }}</label>
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <div class="control">
+              {{ form.inn }}
+      </div>
+    </div>
+  </div>
+</div>
+<h2 class="subtitle">Фактический адрес</h2>
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label" for="{{ form.city.id_for_label }}">{{ form.city.label }}</label>
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <div class="control">
+              {{ form.city }}
+      </div>
+    </div>
+  </div>
+</div>
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label" for="{{ form.street.id_for_label }}">{{ form.street.label }}</label>
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <p class="control">
+              {{ form.street }}
+      </p>
+    </div>
+  </div>
+  <div class="field-label is-normal">
+    <label class="label" for="{{ form.house.id_for_label }}">{{ form.house.label }}</label>
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <p class="control">
+              {{ form.house }}
+      </p>
+    </div>
+  </div>
+  <div class="field-label is-normal">
+    <label class="label" for="{{ form.office.id_for_label }}">{{ form.office.label }}</label>
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <p class="control">
+              {{ form.office }}
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label" for="{{ form.phone.id_for_label }}">{{ form.phone.label }}</label>
+  </div>
+  <div class="field-body">
+    <div class="field is-expanded">
+      <div class="field has-addons">
+        <p class="control">
+          <a class="button is-static">
+            +7
+          </a>
+        </p>
+        <p class="control is-expanded">
+          {{ form.phone }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label" for="{{ form.site.id_for_label }}">{{ form.site.label }}</label>
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <div class="control">
+              {{ form.site }}
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2 class="subtitle">Виды деятельности</h2>
+
+<div class="field is-horizontal">
+  <div class="field-label">
+    <label class="label" for="{{ form.store.id_for_label }}">{{ form.store.label }}</label>
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <div class="control">
+          <label class="checkbox">
+              {{ form.store }}
+          </label>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="field is-horizontal">
+  <div class="field-label">
+    <label class="label" for="{{ form.regional_store.id_for_label }}">{{ form.regional_store.label }}</label>
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <div class="control">
+          <label class="checkbox">
+              {{ form.regional_store }}
+          </label>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="field is-horizontal">
+  <div class="field-label">
+    <label class="label" for="{{ form.federal_store.id_for_label }}">{{ form.federal_store.label }}</label>
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <div class="control">
+          <label class="checkbox">
+              {{ form.federal_store }}
+          </label>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="field is-horizontal">
+  <div class="field-label">
+    <label class="label" for="{{ form.online_store.id_for_label }}">{{ form.online_store.label }}</label>
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <div class="control">
+          <label class="checkbox">
+              {{ form.online_store }}
+          </label>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="field is-horizontal">
+  <div class="field-label">
+    <label class="label" for="{{ form.car_service.id_for_label }}">{{ form.car_service.label }}</label>
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <div class="control">
+          <label class="checkbox">
+              {{ form.car_service }}
+          </label>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label" for="{{ form.other.id_for_label }}">{{ form.other.label }}</label>
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <div class="control">
+          <label>
+              {{ form.other }}
+          </label>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<button class="button is-info" type="submit" onclick="swa()">Отправить заявку</button>
+
+
+<div id="overlay">
+  <div class="popup">
+    <button class="close" title="Закрыть окно" onclick="swa2()"></button>
+    <p class="is-size-4">Успешная регистрация</p>
+  </div>
+</div>
+
+
+
+<script>
+var b = document.getElementById('overlay');
+function swa(){
+	b.style.visibility = 'visible';
+	b.style.opacity = '1';
+	b.style.transition = 'all 0.7s ease-out 0s';
+}
+function swa2(){
+	b.style.visibility = 'hidden';
+	b.style.opacity = '0';
+}
+</script>
+
+{% endblock %}
+
+</form>
+</section>
+  </body>
+</html>
